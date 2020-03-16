@@ -48,8 +48,16 @@ document.querySelector('.btn-hold').addEventListener('click',
             currPlayerScore += roundScore;
 
             document.getElementById('score-' + activePlayer).textContent = currPlayerScore;
+            var input = document.querySelector('.final-score').value;
 
-            if (currPlayerScore >= 10) {
+            var winningScore;
+            if(input){
+                winningScore = input;
+            }else{
+                winningScore= 100;
+            }
+
+            if (currPlayerScore >= winningScore) {
                 document.querySelector('#name-' + activePlayer).textContent = 'WINNER!';
                 document.querySelector('.dice').style.display = 'none';
                 document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');

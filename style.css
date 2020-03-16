@@ -1,6 +1,21 @@
 /**********************************************
 *** GENERAL
 **********************************************/
+.final-score
+{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 520px;
+    color: #555;
+    font-family: 'Lato';
+    text-align: center;
+    padding:10px;
+    width: 160px;
+    text-transform: uppercase;
+}
+
+.final-score:focus { outline: none;}
 
 * {
     margin: 0;
@@ -140,7 +155,7 @@ i {
 .btn-new { top: 45px;}
 .btn-roll { top: 403px;}
 .btn-hold { top: 467px;}
-
+.goal-score{top: 100px;}
 .dice {
     position: absolute;
     left: 50%;
