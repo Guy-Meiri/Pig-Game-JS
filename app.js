@@ -36,12 +36,32 @@ document.querySelector('.btn-roll').addEventListener('click',
         document.querySelector(`#current-${activePlayer}`).textContent = dice;
 
         if (dice !== 1) {
-            // var currScore = parseInt(document.querySelector(`#score${activePlayer}`).);
-
-
-            // document.querySelector(`#score${activePlayer}`).textContent = currScore + dice;
+            roundScore += dice;
+            document.getElementById('current-'+activePlayer).textContent = roundScore;
+        }
+        else{
+            //Next Player
+            // document.getElementById('score-'+activePlayer).textContent = roundScore;
+            // activePlayer = activePlayer === 0? 1:0;
+            // roundScore = 0;
+            changePlayer();
         }
     });
+
+    document.querySelector('.btn-hold').addEventListener('click', 
+    function(){
+        var currPlayerScore = parseInt(document.getElementById('score-' + activePlayer).textContent);
+        currPlayerScore += roundScore;
+
+        document.getElementById('score-'+activePlayer).textContent = currPlayerScore;
+        changePlayer();
+    });
+
+function changePlayer(){
+    document.querySelector('#current-'+activePlayer).textContent = 0;
+    activePlayer = activePlayer === 0? 1:0;
+    roundScore = 0;
+}
 
 function btn() {
     dice = Math.floor(Math.random() * 6) + 1;
